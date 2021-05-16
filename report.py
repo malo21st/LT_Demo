@@ -5,7 +5,7 @@ import sqlite3
     
 DB = "report.db"
 
-LIMIT =  # 一度に表示する出力結果の数
+LIMIT = 3 # 一度に表示する出力結果の数
 SORT = "DESC" # "DESC"：登録が新しい順，""：登録が古い順
 
 DIC_ITEM = {"報告書名":"report", "委託先":"auther"}
