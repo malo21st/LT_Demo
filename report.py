@@ -97,8 +97,8 @@ if df_data.size: # 0：検索結果がない場合，1以上：検索結果が�
         return f'[●]({url})'
 
     df_url = df_report['pdf']
-    df_url["html"]=df_url.apply(to_html, axis=1)
-    df_url["markdown"]=df_url.apply(to_markdown, axis=1)
+    df_url["html"] = df_report.apply(to_html, axis=1)
+    df_url["markdown"] = df_url.apply(to_markdown, axis=1)
     
     st.table(df_url)
     st.dataframe(df_url)
