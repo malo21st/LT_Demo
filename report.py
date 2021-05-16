@@ -5,7 +5,7 @@ import sqlite3
     
 DB = "report.db"
 
-LIMIT = 5 # 一度に表示する出力結果の数
+LIMIT =  # 一度に表示する出力結果の数
 SORT = "DESC" # "DESC"：登録が新しい順，""：登録が古い順
 
 DIC_ITEM = {"報告書名":"report", "委託先":"auther"}
@@ -89,8 +89,8 @@ if df_data.size: # 0：検索結果がない場合，1以上：検索結果が�
     st.markdown("【凡例】●：リンク，×：リンク切れ")
 
     df_url = df_report['pdf']
-    st.dataframe(df_url)
     st.table(df_url)
+    st.dataframe(df_url)
     
 #【表示】概要・使い方など
 # with st.beta_expander("概要・使い方・出典"):
