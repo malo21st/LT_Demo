@@ -87,8 +87,17 @@ if df_data.size: # 0：検索結果がない場合，1以上：検索結果が�
     #【出力】検索結果
     st.markdown(result)
     st.markdown("【凡例】●：リンク，×：リンク切れ")
+    
+    def to_html(url):
+        retrun f'<a href="{url}">●</a>'
+
+    def to_markdown(url):
+        retrun f'[●]({url})'
 
     df_url = df_report['pdf']
+    df_url["html"].apply(to_html, axis='columns')
+    df_url["markdown"].apply(to_markdown, axis='columns')
+    
     st.table(df_url)
     st.dataframe(df_url)
     
