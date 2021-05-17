@@ -100,9 +100,9 @@ if df_data.size: # 0：検索結果がない場合，1以上：検索結果が�
     df_url['pdf'] = df_report['pdf']
     df_url["html"] = df_url.apply(to_html, axis=1)
     df_url["markdown"] = df_url.apply(to_markdown, axis=1)
-    st.subheadder("st.table")
+    st.subheader("st.table")
     st.table(df_url)
-    st.subheadder("st.dataframe")
+    st.subheader("st.dataframe")
     st.dataframe(df_url)
     
 #【表示】概要・使い方など
