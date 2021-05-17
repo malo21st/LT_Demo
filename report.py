@@ -5,7 +5,7 @@ import sqlite3
     
 DB = "report.db"
 
-LIMIT = 3 # 一度に表示する出力結果の数
+LIMIT = 50 # 一度に表示する出力結果の数
 SORT = "DESC" # "DESC"：登録が新しい順，""：登録が古い順
 
 DIC_ITEM = {"報告書名":"report", "委託先":"auther"}
@@ -88,31 +88,32 @@ if df_data.size: # 0：検索結果がない場合，1以上：検索結果が�
     st.markdown(result)
     st.markdown("【凡例】●：リンク，×：リンク切れ")
     
-    def to_html(row):
-        url = row['pdf']
-        return f'<a href="{url}">●</a>'
+    
+#     def to_html(row):
+#         url = row['pdf']
+#         return f'<a href="{url}">●</a>'
 
-    def to_markdown(row):
-        url = row['pdf']
-        return f'[●]({url})'
+#     def to_markdown(row):
+#         url = row['pdf']
+#         return f'[●]({url})'
 
-    df_url = pd.DataFrame()
-    df_url['pdf'] = df_report['pdf']
-    df_url["html"] = df_url.apply(to_html, axis=1)
-    df_url["markdown"] = df_url.apply(to_markdown, axis=1)
-    st.subheader("st.table")
-    st.table(df_url)
-    st.subheader("st.dataframe")
-    st.dataframe(df_url)
+#     df_url = pd.DataFrame()
+#     df_url['pdf'] = df_report['pdf']
+#     df_url["html"] = df_url.apply(to_html, axis=1)
+#     df_url["markdown"] = df_url.apply(to_markdown, axis=1)
+#     st.subheader("st.table")
+#     st.table(df_url)
+#     st.subheader("st.dataframe")
+#     st.dataframe(df_url)
     
 #【表示】概要・使い方など
-# with st.beta_expander("概要・使い方・出典"):
-#     st.info(
-#         "- 概　要：国内外の**有名コンサルが作成した高価な調査報告書**をタダで閲覧できます。  \n"
-#         "- 使い方：キーワードを入力後、**「Enter」キーを押すと検索**します。  \n"
-#         "- 使い方：**空白区切りで、複数キーワード**をＡＮＤ条件で検索できます。  \n"
-#         "- その他：検索結果は、登録が**新しい報告書から最大５０件**を表示します。  \n"
-#         "- 資　料：[お宝の委託調査報告書をもっと閲覧して欲しい(PyData.Fukuoka)](https://docs.google.com/presentation/d/1j13WnD8AgiiYprLIZkI1dbgNlryQDmWY8g5KRbHuiiM/edit?usp=sharing)  \n"
-#         "- 出　典：[委託調査報告書（METI/経済産業省）](https://www.meti.go.jp/topic/data/e90622aj.html)  \n"
-#         "- このサイトの作者のTwitter：[@malo21st](https://twitter.com/malo21st)  \n"
-#     )
+with st.beta_expander("概要・使い方・出典"):
+    st.info(
+        "- 概　要：国内外の**有名コンサルが作成した高価な調査報告書**をタダで閲覧できます。  \n"
+        "- 使い方：キーワードを入力後、**「Enter」キーを押すと検索**します。  \n"
+        "- 使い方：**空白区切りで、複数キーワード**をＡＮＤ条件で検索できます。  \n"
+        "- その他：検索結果は、登録が**新しい報告書から最大５０件**を表示します。  \n"
+        "- 資　料：[お宝の委託調査報告書をもっと閲覧して欲しい(PyData.Fukuoka)](https://docs.google.com/presentation/d/1j13WnD8AgiiYprLIZkI1dbgNlryQDmWY8g5KRbHuiiM/edit?usp=sharing)  \n"
+        "- 出　典：[委託調査報告書（METI/経済産業省）](https://www.meti.go.jp/topic/data/e90622aj.html)  \n"
+        "- このサイトの作者のTwitter：[@malo21st](https://twitter.com/malo21st)  \n"
+    )
