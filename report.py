@@ -96,7 +96,8 @@ if df_data.size: # 0：検索結果がない場合，1以上：検索結果が�
         url = row['pdf']
         return f'[●]({url})'
 
-    df_url = df_report['pdf']
+    df_url = pd.DataFrame()
+    df_url['pdf'] = df_report['pdf']
     df_url["html"] = df_url.apply(to_html, axis=1)
     df_url["markdown"] = df_url.apply(to_markdown, axis=1)
     
