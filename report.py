@@ -25,7 +25,7 @@ def get_sql(item: str, key_word: str):
     return df_sql
 
 # 項目名とキーワードで検索し、メッセージと検索結果を返す
-def get_reports(item: str, key_word: str):
+def get_report(item: str, key_word: str):
     if key_word == "":
         msg, df_data = "項目を選択して、キーワードを入力して下さい。", DF_EMPTY
     elif "%" in key_word:
